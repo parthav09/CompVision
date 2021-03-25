@@ -16,6 +16,6 @@ blurred = cv2.GaussianBlur(gray, (7, 7), 0)
 print("Threshhold value is {}".format(T))
 cv2.imshow("THreshhold image ", cv2.bitwise_and(image, image, mask=threshInv))
 
-
+cv2.imshow("Treshinv: ", threshInv)
 cv2.imshow("Original: ", image)
 cv2.waitKey(0)
