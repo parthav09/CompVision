@@ -18,6 +18,17 @@ for c in cnts:
     cv2.circle(clone, (cx, cy), 10, (0, 255, 0), -1)
 cv2.imshow("Centroids", clone)
 
+#calculating the area and the perimeter
+for (i, c) in enumerate(cnts):
+    area = cv2.contourArea(c)
+    perimeter = cv2.arcLength(c, True)
+    print("Contour: {a} --area: {b} --perimeter: {c}".format(a=i, b=area, c=perimeter))
+    cv2.drawContours(clone, c, -1, (0, 255, 0), 2)
+    M = cv2.moments(c)
+    cX = int(M["m10"] / M["m00"])
+    cY = int(M["m01"] / M["m00"])
+    cv2.putText(clone, "#{}".format(i + 1), (cX - 20, cY), cv2.FONT_HERSHEY_SIMPLEX,1.25, (255, 255, 255), 4)
+cv2.imshow("Contours", clone)
 
 cv2.imshow("Original: ", image)
 cv2.waitKey()
