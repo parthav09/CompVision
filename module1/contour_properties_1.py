@@ -28,7 +28,20 @@ for (i, c) in enumerate(cnts):
     cX = int(M["m10"] / M["m00"])
     cY = int(M["m01"] / M["m00"])
     cv2.putText(clone, "#{}".format(i + 1), (cX - 20, cY), cv2.FONT_HERSHEY_SIMPLEX,1.25, (255, 255, 255), 4)
+    if area>30000:
+        (x, y, w, h) = cv2.boundingRect(c)
+        cv2.rectangle(clone, (x, y), (x+w, y+h), (0, 255, 0), 2)
+    else:
+        pass
 cv2.imshow("Contours", clone)
+
+#Bouding boxes around the image
+# clone = image.copy()
+# for c in cnts:
+#     (x, y, w, h) = cv2.boundingRect(c)
+#     cv2.rectangle(clone, (x, y), (x+w, y+h), (0, 255, 0), 2)
+# cv2.imshow("Boxing: ", clone)
+
 
 cv2.imshow("Original: ", image)
 cv2.waitKey()
