@@ -41,6 +41,16 @@ cv2.imshow("Contours", clone)
 #     (x, y, w, h) = cv2.boundingRect(c)
 #     cv2.rectangle(clone, (x, y), (x+w, y+h), (0, 255, 0), 2)
 # cv2.imshow("Boxing: ", clone)
+# loop over the contours
+for c in cnts:
+	# fit a rotated bounding box to the contour and draw a rotated bounding box
+	box = cv2.minAreaRect(c)
+	box = np.int0(cv2.cv.BoxPoints(box) if imutils.is_cv2() else cv2.boxPoints(box))
+	cv2.drawContours(clone, [box], -1, (0, 255, 0), 2)
+# show the output image
+cv2.imshow("Rotated Bounding Boxes", clone)
+cv2.waitKey(0)
+clone = image.copy()
 
 
 cv2.imshow("Original: ", image)
