@@ -12,7 +12,7 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 hist = cv2.calcHist([image], [0], None, [256], [0, 256])
 # matplotlib expects RGB images so convert and then display the image
 plt.figure()
-plt.axis("off")
+plt.axis("OFF")
 plt.imshow(cv2.cvtColor(gray, cv2.COLOR_GRAY2RGB))
 # plot the histogram
 plt.figure()
