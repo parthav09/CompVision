@@ -19,5 +19,5 @@ for testingPath in paths.list_images(args["testing"]):
 		(x, y, w, h) = (b.left(), b.top(), b.right(), b.bottom())
 		cv2.rectangle(image, (x, y), (w, h), (0, 255, 0), 2)
 	# show the image
-cv2.imshow("Image")
-cv2.waitKey()
+	cv2.imshow("Image", image)
+	cv2.waitKey(5000)

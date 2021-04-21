@@ -41,8 +41,6 @@ detector = dlib.train_simple_object_detector(images, boxes, options)
 print("[INFO] dumping classifier to file...")
 detector.save(args["output"])
 # visualize the results of the detector
-win = dlib.image_window()
-win.set_image(detector)
 dlib.hit_enter_to_continue()
 
 
