@@ -41,7 +41,12 @@ detector = dlib.train_simple_object_detector(images, boxes, options)
 print("[INFO] dumping classifier to file...")
 detector.save(args["output"])
 # visualize the results of the detector
+win = dlib.image_window()
+win.set_image(detector)
+# visualize the results of the detector
 dlib.hit_enter_to_continue()
+
+
 
 
 # python3 train_detector.py --class stop_sign_images --annotations stop_sign_annotations --output output/stop_sign_setector.svm
